@@ -4,41 +4,40 @@ from secrets import SystemRandom
 
 
 def random_without_seed():
-    result = []
-    for i in range(1000):
-        result.append(randint(1, 10))
+    result = [randint(1, 10) for i in range(1000)]
     counter = Counter(result)
+
     for key, value in sorted(counter.items()):
         print(key, ': ', value)
 
 
 def random_with_seed(n):
-    result = []
     seed(n)
-    for i in range(1000):
-        result.append(randint(1, 10))
+
+    result = [randint(1, 10) for i in range(1000)]
     counter = Counter(result)
+
     for key, value in sorted(counter.items()):
         print(key, ': ', value)
 
 
 def system_random_without_seed():
-    result = []
     system_random = SystemRandom()
-    for i in range(1000):
-        result.append(system_random.randint(1, 10))
+
+    result = [system_random.randint(1, 10) for i in range(1000)]
     counter = Counter(result)
+
     for key, value in sorted(counter.items()):
         print(key, ': ', value)
 
 
 def system_random_with_seed(n):
-    result = []
     system_random = SystemRandom()
     system_random.seed(seed)
-    for i in range(1000):
-        result.append(system_random.randint(1, 10))
+
+    result = [system_random.randint(1, 10) for i in range(1000)]
     counter = Counter(result)
+
     for key, value in sorted(counter.items()):
         print(key, ': ', value)
 
